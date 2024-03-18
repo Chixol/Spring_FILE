@@ -3,6 +3,11 @@
  */
 package springworkspace;
 
+import lombok.Getter;
+
+@Getter
+class person{}
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
