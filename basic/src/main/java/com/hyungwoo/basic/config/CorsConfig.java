@@ -10,12 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CorsConfig implements WebMvcConfigurer {
     
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry
-        
-                        .addMapping("/**") // 어떤 Request URL 패턴에 대하여 Cors 정책을 지정할 건지
-                        .allowedMethods("*") // 해당  Request URL 패턴의 어떤 메서드에 Cors 정책을 허용할 건지
-                        .allowedOrigins("*"); // 해당 Request URL 패턴의 어떤 출처에 Cors 정책을 허용할 건지
+    public void addCorsMappings(CorsRegistry corsRegistry) {
+        corsRegistry
+                                .addMapping("/**") // 어떤 Request URL 패턴에 대하여 Cors 정책을 지정할 건지
+                                 .allowedMethods("*") // 해당  Request URL 패턴의 어떤 메서드에 Cors 정책을 허용할 건지
+                                .allowedOrigins("*"); // 해당 Request URL 패턴의 어떤 출처에 Cors 정책을 허용할 건지
     }
 
 }
