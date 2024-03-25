@@ -8,5 +8,5 @@ public class BasicServiceImplement implements Basicservice{
     public String getHello() {
         return "Hello Springboot!!!";
     }
-    
+
 }
