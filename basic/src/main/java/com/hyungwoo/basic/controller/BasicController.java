@@ -73,4 +73,5 @@ public class BasicController {
     // public String deleteApple1() {
     //     return "Delete Mapping으로 만든 메서드";
     // }
+    
 }
