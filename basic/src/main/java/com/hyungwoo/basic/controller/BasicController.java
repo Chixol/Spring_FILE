@@ -1,5 +1,6 @@
 package com.hyungwoo.basic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -8,6 +9,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.hyungwoo.basic.service.BasicService;
+import com.hyungwoo.basic.service.implement.BasicServiceImplement;
+
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 // Controller 레이어 : 
 // - 클라이언트와 서버간의 접점
@@ -21,7 +28,18 @@ import org.springframework.web.bind.annotation.RestController;
 // @RequestMapping(value = "/main", method = {RequestMethod.GET}) //이거 잘 안씀
 // HTTP GET localhost:4000/main/**
 @RequestMapping("/main")
+// @AllArgsConstructor
+@RequiredArgsConstructor
 public class BasicController {
+
+    // private BasicService service;
+
+    // @Autowired
+    // public BasicController(Basicservice service) {
+    //     this.service = service;
+    // }
+
+    private final BasicService service;
     
     // HTTP GET localhost:4000/main/
     @RequestMapping(value = "/", method = {RequestMethod.GET})
