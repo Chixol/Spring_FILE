@@ -21,6 +21,6 @@ public class PostStudentRequestDto {
     @NotBlank
     private String address;
 
-    @NotBlank
+    @NotNull
     private Boolean graduation;
 }
