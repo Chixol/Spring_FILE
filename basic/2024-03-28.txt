@@ -1,0 +1,16 @@
+studentNumber, address
+
+UPDATE student
+SET address = dto.address
+WHERE student_number = dto.studentNumber;
+
+1. student 테이블로 접근
+2. dto.studentNumber에 해당하는 레코드 검색
+3. 검색된 레코드의 address 값을 dto.address로 변경
+
+-----객체지향프로그래밍언어의 class == RDBMS의 talble-----
+-----객체지향프로그래밍언어의 instance == RDBMS의 record-----
+
+1. student class로 접근
+2. dto.studentNumber에 해당하는 instance를 검색
+3. 검색된 instance의 address 값을 dto.address로 변경
