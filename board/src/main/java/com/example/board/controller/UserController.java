@@ -12,7 +12,7 @@ import com.example.board.service.UserService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/vi/user")
+@RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
 public class UserController {
     

@@ -3,7 +3,6 @@ package com.example.board.entity.pk;
 import java.io.Serializable;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.IdClass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@IdClass(FavoritePk.class)
 public class FavoritePk implements Serializable{
     @Column(name = "board_number")
     private Integer boardNumber;

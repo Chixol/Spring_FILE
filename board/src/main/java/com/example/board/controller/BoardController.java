@@ -11,7 +11,7 @@ import com.example.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/vi/board")
+@RequestMapping("/api/v1/board")
 @RequiredArgsConstructor
 public class BoardController {
     
