@@ -22,7 +22,7 @@ public class AuthController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<ResponseDto> signUP(
-        @RequestBody @Valid SignUpRequestDto requestBody) {
+        @RequestBody @Valid SignUpRequestDto requestBody) { //@Valid 가 공백을 검사해줌?!?
             ResponseEntity<ResponseDto> response = authService.signUp(requestBody);
             return response;
     }
