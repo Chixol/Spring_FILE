@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SignUpRequestDto {
     @NotBlank
-    @Pattern(regexp="^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\\.[a-zA-Z]{2, 4}$")
+    @Pattern(regexp="^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\\.[a-zA-Z]{2,4}$")
     private String email;
 
     @Length(min = 8, max = 20)
@@ -24,7 +24,7 @@ public class SignUpRequestDto {
     private String nickname;
 
     @NotBlank
-    @Pattern(regexp = "^[0-9]{10, 12}$")
+    @Pattern(regexp = "^[0-9]{10,12}$")
     private String telNumber;
 
     @NotBlank

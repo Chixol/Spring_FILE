@@ -1,0 +1,42 @@
+UserServiceImplementations
+
+사용자로부터 email 입력
+----------------
+성공 - 유저정보 반환
+존재하지 않는 유저
+데이터베이스 에러 = try-catch
+
+
+----------------------
+SignUpRequestDto / ResponseDto
+AuthService - signUp (dto)
+AuthController - signUp(responseBody)
+
+
+-------------------------------
+
+유효성 검사 실패
+signUpRequestDto 조건 통과
+
+중복된 이메일
+user 테이블에서 email 조회
+기존의 입력값과 같이 않다면 응답처리
+existEmail(email)
+
+중복된 닉네임
+user 테이블에서 nickname 조회
+기존의 입력값과 같이 않다면 응답처리
+existNickname(nickname)
+
+중복된 폰 번호
+user 테이블dptj tel_number 조회
+기존의 입력값과 같이 않다면 응답처리
+existTelNumber(telNumber)
+
+성공
+입력한 데이터를 db에 저장?
+
+DB오류 - try-catch 로 잡기
+exception.printStackTrace();
+return ResponseDto.databaseError();
+
