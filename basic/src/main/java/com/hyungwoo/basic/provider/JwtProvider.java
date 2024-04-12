@@ -6,8 +6,10 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -23,13 +25,16 @@ import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtProvider {
+
+    @Value("${jwt.secret-key}")
+    private String secretKey;
     
     // JWT 생성
     public String create(String principle) {
         // 만료시간 생성
         Date expiredDate = Date.from(Instant.now().plus(4, ChronoUnit.HOURS));
-        // 비밀키 생성
-        Key key = Keys.hmacShaKeyFor("qwerasdzxcqweasdzxcqwezxczxcqwerasdzxcqweasdzxcqwezxczxc".getBytes(StandardCharsets.UTF_8));
+        // 비밀키 생성 //이런방식으로 사용하면 깃허브나 다른 공유 레퍼지토리 등록시 큰일남! (연습이라 하는거임)
+        Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 
         // JWT 생성
         String jwt = Jwts.builder()
@@ -46,4 +51,28 @@ public class JwtProvider {
             .compact();
             return jwt;
     }
+
+    public String validation(String jwt) {
+
+        // jwt 검증 결과로 나타나는 페이로드가 저장될 변수
+        Claims claims = null;
+        // 비밀키 생성
+        Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+        
+        try {
+            // 비밀키로 jwt 복호화 작업
+            claims = Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(jwt)
+                .getBody();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return null;
+        }
+
+        return claims.getSubject();
+
+    }
+
 }
